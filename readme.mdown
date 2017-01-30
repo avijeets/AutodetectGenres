@@ -1,0 +1,18 @@
+# Auto-Detecting Book Genres
+
+Run `python bookbub.py <JSON file> <CSV file>` in your CLI. 
+
+### Calculating the Score
+
+For each genre, there are several keywords that are expected to be present in the book description for that genre. A point value has been assigned to each keyword because some keywords provide stronger signals than others. The genre-fit score is calculated as: 
+
+` total num keyword matches * avg point value of the unique matching keywords `
+
+### Challenges Faced
+
+- Finding keyword matches for when there's a character prior to the word. For example, Python wouldn't find "distant future" in "not-too-distant future". Solution was to include `[1:]` for whenever accessing the keyword column. 
+- My initial implementation would search the title **and** for description for keywords, which resulted in faulty values. Easy fix but wasted some time.
+- Eliminating the first row of the CSV so it isn't counted as a keyword match as well.
+- Used a lambda function in order to reverse sort the tuple of (keyword, value), then used `[::-1]` in order to sort it properly.
+- Made the initial JSON dictionary empty, and used a for loop to append to it. This was helpful because it can now accept more than one title/description in the inputted JSON file.
+- The designated data structure to output the final result doesn't allow for inserting the titles of the books in a simple manner. The calculations are correct but the output isn't in the best format.
