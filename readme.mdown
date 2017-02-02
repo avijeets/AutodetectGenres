@@ -1,6 +1,6 @@
 # Auto-Detecting Book Genres
 
-Run `python bookbub.py <JSON file> <CSV file>` in your CLI. 
+Run `python app.py <JSON file> <CSV file>` in your CLI. 
 
 ### Calculating the Score
 
